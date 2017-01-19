@@ -1,0 +1,21 @@
+version: '3'
+services:
+
+  phastload:
+    image: phast
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./phastload:/opt/phastload
+    networks:
+      phastload:
+        ipv4_address: 172.0.0.2
+
+networks:
+  phastload:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.0.0.0/24
+

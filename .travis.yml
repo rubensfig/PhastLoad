@@ -1,0 +1,15 @@
+language: python
+
+python:
+  - 3.4
+
+before_install:
+  - export DJANGO_SETTINGS_MODULE=phastload.settings
+  - export PYTHONPATH=$HOME/builds/rubensfig/Phastload
+  - export PIP_USE_MIRRORS=true
+
+install:
+  - pip install -r requirements.txt
+
+script:
+- cd phastload && python3 manage.py test
