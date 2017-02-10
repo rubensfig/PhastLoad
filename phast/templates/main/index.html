@@ -1,0 +1,40 @@
+{% load static %}
+
+<html>
+<head>
+  <title>Phastload</title>
+  <script src = "{% static "js/dropzone.js" %}" enctype="multipart/form-data"></script>
+  <link rel="icon" href="{% static "img/icon_logo.png" %}">
+  <link rel="stylesheet" type="text/css" href = "{% static "css/dropzone.css" %}">
+  <link rel="stylesheet" type="text/css" href = "{% static "css/basic.css" %}">
+</head>
+<body>
+
+  <img id="logo" src="{% static "img/phastload_logo.png" %} "> </img>
+
+ <form method="post" enctype="multipart/form-data" name = "submitId">
+   <div id="inputField">
+    <input id="input" name = "fileId" type ="text"/ placeholder = "File ID" required>
+    <input id="button" name="submit" type ="submit"/>
+  </div>
+  {% csrf_token %}
+ </form>
+
+ <form>
+  <input type="text" readonly>{{sessionid}}</input>
+ </form>
+
+ <script>
+ var xmlhttp = new XMLHttpRequest();
+
+  xmlhttp.onreadystatechange = function() {
+     if (this.readyState == 4 && this.status == 200) {
+         var myArr = JSON.parse(this.responseText);
+     }
+  };
+ </script>
+
+ <form class="dropzone" id="mydropzone" enctype="multipart/form-data">  {% csrf_token %} </form>
+
+</body>
+</html>
