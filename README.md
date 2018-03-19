@@ -4,4 +4,4 @@ build the image:
 
 run the file
 
-``` sudo docker run -p 80:80 --name phastload phastload```
+``` sudo docker run -dp 80:80 --name phastload phastload```
