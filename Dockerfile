@@ -1,13 +1,35 @@
 FROM fedora:27
 
-RUN mkdir /phastload
-WORKDIR /phastload
+RUN mkdir /opt/phastload
+RUN mkdir /opt/configs
 
-ADD requirements.txt /phastload/requirements.txt
+WORKDIR /opt/phastload
 
-RUN dnf -y install httpd python3-pip gcc && dnf clean all; systemctl enable httpd.service
+RUN dnf install -y \
+        gcc \
+        git \
+        nginx \
+        python3 \
+        python3-devel \
+        python3-pip \
+        python3-setuptools \
+        supervisor
 
-RUN pip3 install -r requirements.txt
+# setup all the configfiles
+COPY configs/supervisord.conf /etc/supervisord.conf
+# RUN echo "daemon off;" >> /etc/nginx/sites-enabled/nginx.conf
+
+RUN mkdir /etc/nginx/sites-enabled
+RUN rm /etc/nginx/nginx.conf
+RUN ln -s /opt/configs/nginx/nginx.conf /etc/nginx/
+RUN ln -s /opt/configs/nginx/phastload.conf /etc/nginx/sites-enabled/
+
+COPY requirements.txt /opt/phastload/
+RUN pip3 install --no-cache-dir -r requirements.txt
+
+COPY ./phastload /opt/phastload/
+COPY ./configs /opt/configs/
 
 EXPOSE 80
-ADD . /phastload
+EXPOSE 443
+CMD ["supervisord", "-n"]
