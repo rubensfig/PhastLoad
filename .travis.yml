@@ -4,7 +4,7 @@ python:
   - 3.4
 
 before_install:
-  - export DJANGO_SETTINGS_MODULE=phastload.settings
+  - export DJANGO_SETTINGS_MODULE=phastload.development
   - export PYTHONPATH=$HOME/builds/rubensfig/Phastload
   - export PIP_USE_MIRRORS=true
 

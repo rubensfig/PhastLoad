@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+# Create your views here.
+
 def index(request):
-    title = 'Phastload'
-    sitename = 'Main site'
-    descr = 'Description'
+    title = 'Phone Phastload'
+    sitename = 'Phone Main site'
+    descr = 'Phone Description'
     context = {'title' : title, 'sitename' : sitename, 'descr' : descr}
 
     return render(
@@ -12,4 +14,4 @@ def index(request):
         'mainsite.html',
         context
     )
-    #return HttpResponse("Hello, world.")
+

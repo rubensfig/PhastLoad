@@ -25,7 +25,7 @@ SECRET_KEY = 'z3l6=^qdf@m*%%hyc**hzw_^^69%**5sd4ae7#shfjh(=jd3a('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['172.17.0.2', 'localhost']
+ALLOWED_HOSTS = ['172.17.0.2', 'localhost', '192.168.1.172', 'default_server']
 
 
 # Application definition
@@ -54,7 +54,9 @@ ROOT_URLCONF = 'phastload.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [ './templates',
+                  'mainsite/templates',  
+                ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

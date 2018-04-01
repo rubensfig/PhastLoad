@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    path('phone/', include('phoneapp.urls')),
     path('index/', include('mainsite.urls')),
     path('admin/', admin.site.urls),
 ]

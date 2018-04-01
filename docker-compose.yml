@@ -6,8 +6,9 @@ services:
     ports:
       - 80:80
       - 443:443
-    volumes:
-      - ./phastload:/opt/phastload
+    environment:
+      - DJANGO_SETTINGS_MODULE=phastload.production
+      - SECRET_KEY=z3l6=^qdf@m*%%hyc**hzw_^^69%**5sd4ae7#shfjh(=jd3a(
     networks:
       phastload:
         ipv4_address: 172.0.0.2
