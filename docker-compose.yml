@@ -1,6 +1,18 @@
 version: '3'
 services:
 
+  mariadb:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'test_pass' # TODO: Change this
+      MYSQL_USER: 'hackathon'
+      MYSQL_PASS: 'hackathon'
+      MYSQL_DATABASE: 'hackathon'
+    networks:
+      phastload:
+        ipv4_address: 172.0.0.3
+
   phastload:
     image: phast
     ports:
