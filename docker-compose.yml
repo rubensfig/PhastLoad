@@ -1,6 +1,17 @@
 version: '3'
 services:
 
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      phastload:
+        aliases:
+            - mariadb
+        ipv4_address: 172.0.0.4
+
   mariadb:
     image: mariadb
     restart: always
