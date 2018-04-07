@@ -11,8 +11,8 @@ class Beaches(models.Model):
 
     id = models.CharField(max_length=30, primary_key=True)
     name = models.CharField(max_length=30)
-    latX = models.DecimalField(max_length=30)
-    latY = models.DecimalField(max_length=30)
+    latX = models.DecimalField(max_length=30,max_digits=5, decimal_places=2)
+    latY = models.DecimalField(max_length=30,max_digits=5, decimal_places=2)
     cond = models.CharField(max_length=30, choices=BEACH_TYPES)
 
 class Users(models.Model):
