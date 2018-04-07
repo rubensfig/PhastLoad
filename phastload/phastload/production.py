@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mainsite',
+    'phoneapp',
 ]
 
 MIDDLEWARE = [
@@ -78,8 +80,8 @@ DATABASES = {
     'default': {
         'ENGINE'   : 'django.db.backends.mysql',
         'NAME'     : 'hackathon',
-        'USER'     : 'hackathon',
-        'PASSWORD' : 'hackathon',
+        'USER'     : 'root',
+        'PASSWORD' : 'test_pass',
         'HOST'     : 'mariadb',
         'PORT'     : '',
     }
@@ -123,4 +125,4 @@ USE_TZ = True
 
 STATIC_ROOT = '/opt/phastload/static/'
 STATIC_URL = '/static/'
-STATICFILES_DIRS = ( os.path.join('static/'), )
+# STATICFILES_DIRS = ( os.path.join('static/'), )

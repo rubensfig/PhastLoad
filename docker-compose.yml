@@ -5,10 +5,10 @@ services:
     image: mariadb
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: 'test_pass' # TODO: Change this
-      MYSQL_USER: 'hackathon'
-      MYSQL_PASS: 'hackathon'
-      MYSQL_DATABASE: 'hackathon'
+      MYSQL_ROOT_PASSWORD: test_pass # TODO: Change this
+      MYSQL_USER: hackathon
+      MYSQL_PASS: hackathon
+      MYSQL_DATABASE: hackathon
     networks:
       phastload:
         aliases:
@@ -38,4 +38,3 @@ networks:
     ipam:
       config:
         - subnet: 172.0.0.0/24
-
