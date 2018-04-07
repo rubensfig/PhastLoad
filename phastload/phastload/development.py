@@ -71,7 +71,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'phastload.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
@@ -84,12 +83,8 @@ WSGI_APPLICATION = 'phastload.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE'   : 'django.db.backends.mysql',
-        'NAME'     : 'hackathon',
-        'USER'     : 'hackathon',
-        'PASSWORD' : 'hackathon',
-        'HOST'     : 'mariadb',
-        'PORT'     : '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 

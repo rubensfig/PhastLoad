@@ -13,11 +13,11 @@ RUN dnf install -y \
         python3-devel \
         python3-pip \
         python3-setuptools \
+        python3-mysql \
         supervisor
 
 # setup all the configfiles
 COPY configs/supervisord.conf /etc/supervisord.conf
-# RUN echo "daemon off;" >> /etc/nginx/sites-enabled/nginx.conf
 
 RUN mkdir /etc/nginx/sites-enabled
 RUN rm /etc/nginx/nginx.conf
@@ -26,8 +26,9 @@ RUN ln -s /opt/configs/nginx/phastload.conf /etc/nginx/sites-enabled/
 
 COPY requirements.txt /opt/phastload/
 RUN pip3 install --no-cache-dir -r requirements.txt
+# RUN ./manage.py collectstatic -y
 
-COPY ./phastload /opt/phastload/
+# COPY ./phastload /opt/phastload/
 COPY ./configs /opt/configs/
 
 EXPOSE 80
