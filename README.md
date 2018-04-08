@@ -10,13 +10,17 @@ cd phastload
 ./manage.py runserver
 ```
 
+And visit
+
+``` localhost:8000/index ```
+
 build the image
 
-``` sudo docker build -t phastload . ```
+``` sudo docker build -t phast . ```
 
 run the file
 
-``` sudo docker run -dp 80:80 --name phastload phastload ```
+``` sudo docker-compose up -d ```
 
 Access the Web page
 
